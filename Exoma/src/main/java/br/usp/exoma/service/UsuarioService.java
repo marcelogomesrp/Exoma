@@ -22,5 +22,9 @@ public class UsuarioService {
     public Usuario create(Usuario usuario){
         return usuarioDao.adiciona(usuario);
     }
+
+    public Usuario buscarPorUsernamePassword(String username, String password) {
+        return usuarioDao.buscarPorUsernamePassword(username, password);
+    }
     
 }
