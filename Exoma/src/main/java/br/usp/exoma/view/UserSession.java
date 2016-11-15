@@ -7,36 +7,40 @@ import javax.inject.Named;
 
 import br.usp.exoma.model.Usuario;
 
-
 /**
- * This represents the users session and stores their {@link Usuario} instance if
- * they are logged in. It includes help methods to return a flag for if they are
- * logged in or not.
- * 
+ * This represents the users session and stores their {@link Usuario} instance
+ * if they are logged in. It includes help methods to return a flag for if they
+ * are logged in or not.
+ *
  * @author Andy Gibson
- * 
+ *
  */
 @Named("userSession")
 @SessionScoped
 public class UserSession implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private Usuario user;
+    private Usuario usuario;
 
-	public void logout() {
-		user = null;
-	}
+    public void logout() {
+        usuario = null;
+    }
 
-	public void setUser(Usuario user) {
-		this.user = user;
-	}
 
-	public boolean isLoggedIn() {
-		return user != null;
-	}
+    public boolean isLoggedIn() {
+        return usuario != null;
+    }
 
-	public Usuario getUser() {
-		return user;
-	}
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
+    
+
+
 }

@@ -4,10 +4,8 @@ import br.usp.exoma.FacesUtil;
 import br.usp.exoma.model.Usuario;
 import br.usp.exoma.service.UsuarioService;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.component.html.HtmlInputText;
 import javax.inject.Inject;
 import javax.inject.Named;
-import static org.hsqldb.Library.user;
 
 /**
  *
@@ -25,7 +23,6 @@ public class LoginMB {
     private UsuarioService usuarioService;
     @Inject
     private FacesUtil facesUtil;
-    HtmlInputText usernameEntry;
 
     public String getUsername() {
         return username;
@@ -44,12 +41,12 @@ public class LoginMB {
     }
     
     public String login() {
-        Usuario usuario = usuarioService.buscarPorUsernamePassword(username, password);
+       Usuario usuario = usuarioService.buscarPorUsernamePassword(username, password);
         if (usuario == null) {
-            facesUtil.addErroMensagem(usernameEntry.getClientId(), "Usuário ou senha inválido");
+            facesUtil.addErroMensagem("Usuário ou senha inválido");
             return "login";
         } else {
-            userSession.setUser(usuario);
+            userSession.setUsuario(usuario);
             return "logado/index";
         }
     }

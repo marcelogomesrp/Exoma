@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
@@ -7,18 +7,16 @@
                 template="/WEB-INF/templates/template.xhtml">
     <ui:define name="content">
         <h:panelGroup styleClass="bookmarks" id="formAdd">
-            <p:panel header="Novo usuário" >
-                <p:messages/>
+            <p:panel header="Login" >
                 <h:form>
-                    pk
-                    <h:outputText value="Login" />
+                    <p:messages/>
                     <h:panelGrid columns="2" >
                         <h:outputText value="Username" />
                         <p:inputText value="#{loginMB.username}" />
                         <h:outputText value="Password" />
                         <p:inputText value="#{loginMB.password}" />
                     </h:panelGrid>
-                    <p:commandButton value="Entrar" action="#{loginMB.login}" ajax="false" />
+                    <p:commandButton value="Entrar" action="#{loginMB.login}" ajax="false"/>
                 </h:form>
             </p:panel>
         </h:panelGroup>
