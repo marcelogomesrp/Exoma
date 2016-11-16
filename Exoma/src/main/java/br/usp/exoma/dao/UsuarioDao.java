@@ -2,6 +2,7 @@ package br.usp.exoma.dao;
 
 import br.usp.exoma.model.Usuario;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -29,6 +30,7 @@ public class UsuarioDao implements Serializable {
     }
 
     public Usuario adiciona(Usuario user) {
+        user.setDataCadastro(new Date());
         return this.dao.adiciona(user);
     }
 

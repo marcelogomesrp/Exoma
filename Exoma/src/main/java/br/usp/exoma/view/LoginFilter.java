@@ -35,7 +35,6 @@ public class LoginFilter implements Filter{
             //httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/login.xhtml");
             httpServletResponse.sendRedirect("login");
         }       
-        httpServletResponse.sendRedirect("login");
     }
 
     @Override

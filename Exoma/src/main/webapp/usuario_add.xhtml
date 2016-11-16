@@ -7,15 +7,31 @@
                 template="/WEB-INF/templates/template.xhtml">
     <ui:define name="content">
         <h:panelGroup styleClass="bookmarks" id="formAdd">
-            <p:panel header="Novo usuário" >
+            <p:panel header="Usuario1" rendered="#{usuarioAddMB.salvo}">
+                <h:form>
+                    <p:messages />
+                    <p:commandButton action="#{usuarioAddMB.novo}" 
+                                     value="Adicionar outro" update="formAdd" />
+                </h:form>
+                
+            </p:panel>
+            
+            
+            <p:panel id="novo" header="Usuario" rendered="#{!usuarioAddMB.salvo}">
                 <p:messages/>
                 <h:form>
-                    <h:outputText value="Novo usuario" />
+                    <h:outputText value="Adicionar usuÃ¡rio" />
                     <h:panelGrid columns="2" >
+                        <h:outputText value="Nome" />
+                        <p:inputText value="#{usuarioAddMB.user.nome}" />
                         <h:outputText value="Username" />
                         <p:inputText value="#{usuarioAddMB.user.username}" />
-                        <h:outputText value="Password" />
+                        <h:outputText value="Senha" />
                         <p:inputText value="#{usuarioAddMB.user.password}" />
+                        <h:outputText value="Confirma senha" />
+                        <p:inputText value="#{usuarioAddMB.confirmaSenha}" />
+                        <h:outputText value="Email" />
+                        <p:inputText value="#{usuarioAddMB.user.email}" />
                     </h:panelGrid>
                     <p:commandButton value="Salvar" action="#{usuarioAddMB.salvar}" update="formAdd" />
                 </h:form>
