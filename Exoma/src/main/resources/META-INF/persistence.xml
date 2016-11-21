@@ -24,7 +24,7 @@
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
 			<property name="hibernate.connection.username" value="root" />
 			<property name="hibernate.connection.password" value="senha" />
-			<property name="hibernate.connection.url" value="jdbc:mysql://localhost/exoma" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost/exoma?useTimezone=true&amp;serverTimezone=UTC" />
                         
 
 <!-- HSQL Db Syntax

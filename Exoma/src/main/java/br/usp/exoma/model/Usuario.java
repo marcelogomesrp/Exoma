@@ -13,7 +13,7 @@ import javax.persistence.Temporal;
 /**
  * User account that is required for logging in and posting bookmarks.
  *
- * @author Andy Gibson
+ * @author Marcelo Gomes
  *
  */
 @Entity

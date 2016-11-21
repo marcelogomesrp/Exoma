@@ -25,10 +25,24 @@
         </div>
         <div>
             <div id="left">
-                <ui:insert name="left">Left</ui:insert>
+                <ui:insert name="left">
+                    <h:form>
+                        <p:slideMenu style="width:140px">
+                            <p:menuitem value="Home" action="index" icon="ui-icon-disk" ajax="false"/>
+                            <p:submenu label="Analise" icon="ui-icon-refresh">
+                                <p:menuitem value="Novo" action="/logado/analise_add" icon="ui-icon-disk" update="conteudo" ajax="false"/>
+                            </p:submenu>
+                        </p:slideMenu>
+                        <p:panelGrid columns="1" >
+                            <h:commandLink value="Nova" action="logado/analise_add" />
+                        </p:panelGrid>
+                    </h:form>
+                </ui:insert>
             </div>
             <div id="content" class="left_content">
+                <p:panel id="conteudo" >
                 <ui:insert name="content">Content</ui:insert>
+                </p:panel>
             </div>
         </div>
     </h:body>

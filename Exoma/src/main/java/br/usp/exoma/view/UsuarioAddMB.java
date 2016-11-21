@@ -4,8 +4,6 @@ import br.usp.exoma.FacesUtil;
 import br.usp.exoma.model.Usuario;
 import br.usp.exoma.service.UsuarioService;
 import br.usp.exoma.util.ServiceException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -28,6 +26,8 @@ public class UsuarioAddMB {
 
     public UsuarioAddMB() {
     }
+    
+
 
     public void salvar() {
         try {
