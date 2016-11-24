@@ -3,9 +3,16 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="./template.xhtml"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:h="http://java.sun.com/jsf/html">
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="content">
+                        
+        <p:panelGrid >
+            <f:facet name="header">
+                <h:outputText value="Nova análise" />
+            </f:facet>
+        </p:panelGrid>
         <h:form enctype="multipart/form-data">
             <p:messages />
             <p:panelGrid columns="2" >

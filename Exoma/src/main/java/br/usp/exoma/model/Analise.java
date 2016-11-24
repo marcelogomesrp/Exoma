@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,6 +35,8 @@ public class Analise implements Serializable {
     @Column(name = "data_cadastro")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataCadastro;
+    @Enumerated(EnumType.STRING)
+    private Estado estado;
     
 
     public Long getId() {
@@ -75,5 +79,14 @@ public class Analise implements Serializable {
         this.dataCadastro = dataCadastro;
     }
 
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
+    
     
 }

@@ -8,8 +8,10 @@ import br.usp.exoma.dao.VariantePacienteDao;
 import br.usp.exoma.dao.tx.Transacional;
 import br.usp.exoma.model.Analise;
 import br.usp.exoma.model.Cromossomo;
+import br.usp.exoma.model.Estado;
 import br.usp.exoma.model.Nucleotideos;
 import br.usp.exoma.model.Paciente;
+import br.usp.exoma.model.Usuario;
 import br.usp.exoma.model.Variante;
 import br.usp.exoma.model.VariantePaciente;
 import java.io.BufferedReader;
@@ -56,6 +58,7 @@ public class AnaliseService {
     @Transacional
     public void criar(Analise analise, InputStream inputstream) {
         this.analise = analise;
+        analise.setEstado(Estado.Novo);
         analiseDao.criar(analise);
         //    this.criar();
         System.out.println("Rodando...2");
@@ -90,7 +93,7 @@ public class AnaliseService {
             while ((linha = buffRead.readLine()) != null) {
                 if (!linha.startsWith("#")) {                    
                     Variante variante = new Variante();
-                    variante.setTexto(linha);
+                    //variante.setTexto(linha);
                     String[] valores = linha.split("\\s+");
                     //adiciona os pacientes
                     if(qtdPacientes == -1){
@@ -148,6 +151,11 @@ public class AnaliseService {
             //project.setProjectState(ProjectState.processing_error);
         }
         //projectDao.merge(project);
+    }
+
+    public List<Analise> PesquisarPorGestor(Usuario gestor) {
+        return analiseDao.PesquisarPorGestor(gestor);
+        //return analiseDao.PesquisarTodos();
     }
 
 }

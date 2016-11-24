@@ -26,8 +26,8 @@ public class Variante implements Serializable {
     private Cromossomo cromossomo;
     private int cromossomoPosicao;
     private String refSNP;
-    @Lob
-    private String texto;
+    //@Lob
+    //private String texto;
     @Enumerated(EnumType.STRING)
     private Nucleotideos referencia;
     @Enumerated(EnumType.STRING)
@@ -45,14 +45,6 @@ public class Variante implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getTexto() {
-        return texto;
-    }
-
-    public void setTexto(String texto) {
-        this.texto = texto;
     }
 
     public Cromossomo getCromossomo() {

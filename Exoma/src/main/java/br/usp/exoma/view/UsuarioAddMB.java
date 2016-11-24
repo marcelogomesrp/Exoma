@@ -34,7 +34,7 @@ public class UsuarioAddMB {
             usuarioService.create(user, confirmaSenha);
             user = new Usuario();
             confirmaSenha = "";
-            facesUtil.addMensagem("Usu·rio adicionado com sucesso");
+            facesUtil.addMensagem("Usu√°rio adicionado com sucesso");
             salvo=true;
         } catch (ServiceException ex) {
             for(Exception e : ex.getMessages()){

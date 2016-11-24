@@ -4,6 +4,7 @@ import br.usp.exoma.model.Analise;
 import br.usp.exoma.model.Usuario;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -31,5 +32,20 @@ public class AnaliseDao implements Serializable {
         entityManager.persist(analise);
         return this.dao.adiciona(analise);
     }
+
+    @SuppressWarnings("unchecked")
+    public List<Analise> PesquisarPorGestor(Usuario gestor) {
+        String ql = "SELECT a FROM Analise a WHERE a.gestor = :gestor";
+        List<Analise> results = entityManager.createQuery(ql).setParameter(
+                "gestor", gestor)
+                .getResultList();
+        return results;
+    }
+    
+    public List<Analise> PesquisarTodos(){
+        return this.dao.listaTodos();
+    }
+    
+    
 
 }

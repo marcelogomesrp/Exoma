@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default2.css"/>
+        <h:outputStylesheet name="./css/cssLayout2.css"/>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+
+
+        <div id="top" class="top">
+            <ui:insert name="top">
+                <p:panelGrid columns="2">
+                    <h:outputText value="Nome" />
+                    <h:outputText value="#{userSession.usuario.username}" />
+                </p:panelGrid>
+            </ui:insert>
+        </div>
+        <div>
+            <div id="left">
+                <ui:insert name="left">
+                    <h:form>
+                        <p:slideMenu style="width:150px">
+                            <p:menuitem value="Home" action="index" icon="ui-icon-disk" ajax="false"/>
+                            <p:submenu label="Analise" icon="ui-icon-refresh">
+                                <p:menuitem value="Novo" action="/logado/analise_add" icon="ui-icon-disk" update="conteudo" ajax="false"/>
+                                <p:submenu label="Listar" icon="ui-icon-refresh">
+                                    <p:menuitem value="Todos" action="/logado/analise_add" icon="ui-icon-disk" update="conteudo" ajax="false"/>
+                                    <p:menuitem value="Novos" action="/logado/analise_add" icon="ui-icon-disk" update="conteudo" ajax="false"/>
+                                </p:submenu>
+                            </p:submenu>
+                            
+                        </p:slideMenu>
+                    </h:form>
+                </ui:insert>
+            </div>
+            <div id="content" class="left_content">
+                <p:panel id="conteudo" >
+                <ui:insert name="content">Content</ui:insert>
+                </p:panel>
+            </div>
+        </div>
+    </h:body>
+
+</html>

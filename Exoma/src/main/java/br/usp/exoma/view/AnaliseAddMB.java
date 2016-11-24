@@ -38,18 +38,18 @@ public class AnaliseAddMB implements Serializable {
     }
     
     public String salvar() {
-        System.out.println("esta indo...");
         if(file == null){
             facesUtil.addErroMensagem("Informe o arquivo VCF");
-        }else{
-            System.out.println("be happy");
-            facesUtil.addMensagem("Be happy");
+        }else{            
             try{
-            analiseService.criar(analise, file.getInputstream());
+                analise.setGestor(userSession.getUsuario());
+                analiseService.criar(analise, file.getInputstream());
             }catch(IOException ex){
                 facesUtil.addErroMensagem("ops: " + ex.toString());
+                facesUtil.addErroMensagem("Ocorreu um erro: " + ex.toString());
             }
         }
+        facesUtil.addMensagem("Analise cadastrada com sucesso");
         return "analise_add";
     }
 
