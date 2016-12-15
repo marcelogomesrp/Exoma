@@ -15,12 +15,10 @@
                 </h:form>
                 
             </p:panel>
-            
-            
             <p:panel id="novo" header="Usuario" rendered="#{!usuarioAddMB.salvo}">
                 <p:messages/>
                 <h:form>
-                    <h:outputText value="Adicionar usuÃ¡rio" />
+                    <h:outputText value="Adicionar usuário" />
                     <h:panelGrid columns="2" >
                         <h:outputText value="Nome" />
                         <p:inputText value="#{usuarioAddMB.user.nome}" />

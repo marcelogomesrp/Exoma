@@ -8,8 +8,8 @@
                 <packaging>ejb</packaging>
             </packagings>
             <goals>
-                <goal>jetty:stop</goal>
                 <goal>jetty:run</goal>
+                
                 
             </goals>
         </action>
@@ -25,7 +25,7 @@
                 <goal>jetty:run</goal>
             </goals>
             <properties>
-                <jpda.listen>mave</jpda.listen>
+                <jpda.listen>maven</jpda.listen>
                 <netbeans.deploy.debugmode>true</netbeans.deploy.debugmode>
             </properties>
         </action>

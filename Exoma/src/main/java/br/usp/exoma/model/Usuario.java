@@ -41,6 +41,18 @@ public class Usuario implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataCadastro;
 
+    public Usuario() {
+    }
+
+    public Usuario(Long id, String username, String password, String nome, String email, Date dataCadastro) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.nome = nome;
+        this.email = email;
+        this.dataCadastro = dataCadastro;
+    }
+
     public Long getId() {
         return id;
     }

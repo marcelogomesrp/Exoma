@@ -38,7 +38,7 @@ public class UsuarioService {
     private boolean podeSerSalvo(Usuario usuario, String confirmaSenha) throws ServiceException{
         ServiceException serviceException = new ServiceException();
         if(!usuario.getPassword().equals(confirmaSenha)){
-            serviceException.addMessage("A senha e a confirmaÁ„o n„o s„o iguais");
+            serviceException.addMessage("A senha e a confirma√ß√£o n√£o s√£o iguais");
         }
         
         if(serviceException.hasMessages()){

@@ -43,7 +43,7 @@ public class LoginMB {
     public String login() {
        Usuario usuario = usuarioService.buscarPorUsernamePassword(username, password);
         if (usuario == null) {
-            facesUtil.addErroMensagem("Usu·rio ou senha inv·lido");
+            facesUtil.addErroMensagem("Usu√°rio ou senha inv√°lido");
             return "login";
         } else {
             userSession.setUsuario(usuario);

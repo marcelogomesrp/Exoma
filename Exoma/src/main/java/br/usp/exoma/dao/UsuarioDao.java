@@ -4,6 +4,7 @@ import br.usp.exoma.model.Usuario;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -15,15 +16,26 @@ import javax.persistence.EntityManager;
  */
 @RequestScoped
 public class UsuarioDao implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @DataRepository
     @Inject
     private EntityManager entityManager;
+    
+    //@Inject
+    //private Logger logger;
 
     private DAO<Usuario> dao;
 
+    public UsuarioDao() {
+    }
+
+    public UsuarioDao(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    
+    
     @PostConstruct
     void init() {
         this.dao = new DAO<Usuario>(this.entityManager, Usuario.class);
