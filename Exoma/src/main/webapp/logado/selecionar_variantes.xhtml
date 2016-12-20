@@ -47,10 +47,22 @@
                 <p:column>
                     <f:facet name="header">
                         <p:panelGrid columns="1">
-                            <h:outputText value="Id" />
+                            <h:outputText value="Impacto" />
                             <p:inputText  id="panel" 
-                                         style="width:150px" placeholder="filter"                                          
+                                         style="width:150px" placeholder="Impacto"                                          
                                          >
+                                 <p:commandButton value="Selecionar Impacto" type="button" onclick="PF('dlg1').show();" />
+                                    <p:dialog header="Selecione o impacto" widgetVar="dlg1" resizable="true" width="800">
+                                        
+                                        <p:selectManyCheckbox id="basic"  layout="grid" columns="1" >
+                                            <f:selectItem itemLabel="LowQual" itemValue="Xbox One" />                                           
+                                            <f:selectItem itemLabel="PASS" itemValue="PS4" />
+                                            <f:selectItem itemLabel="VQSRTrancheINDEL99.00to99.90" itemValue="Wii U" />
+                                            <f:selectItem itemLabel="VQSRTrancheSNP99.00to99.90" itemValue="Wii U" />
+                                            <f:selectItem itemLabel="VQSRTrancheSNP99.90to100.00" itemValue="Wii U" />
+                                        </p:selectManyCheckbox>
+                                            
+                                    </p:dialog>
                             </p:inputText>
                         </p:panelGrid>
                     </f:facet>
