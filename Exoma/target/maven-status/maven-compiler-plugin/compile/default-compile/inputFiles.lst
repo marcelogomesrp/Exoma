@@ -4,6 +4,7 @@ C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\
 C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\view\UsuarioAddMB.java
 C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\view\LoginMB.java
 C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\view\UserSession.java
+C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\model\Filtro.java
 C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\view\LoginFilter.java
 C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\dao\DataRepositoryProducer.java
 C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\model\Usuario.java
@@ -11,6 +12,8 @@ C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\
 C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\view\LoginBean.java
 C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\model\Nucleotideos.java
 C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\FacesUtil.java
+C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\service\VarianteService.java
+C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\dao\FiltroDao.java
 C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\dao\tx\Transacional.java
 C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\view\SelecionarVariantesMB.java
 C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\service\UsuarioService.java
@@ -18,6 +21,7 @@ C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\
 C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\model\Cromossomo.java
 C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\service\AnaliseService.java
 C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\dao\DataRepository.java
+C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\service\FiltroService.java
 C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\view\ListarTodosMB.java
 C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\dao\tx\CreateLogger.java
 C:\Users\marcelo\Documents\NetBeansProjects\github\Exoma\Exoma\src\main\java\br\usp\exoma\service\CromossomoService.java

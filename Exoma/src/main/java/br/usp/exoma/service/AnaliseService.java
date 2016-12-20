@@ -126,6 +126,7 @@ public class AnaliseService {
                     variante.setFilter(valores[6]);
                     variante.setInfo(valores[7]);
                     variante.setFormat(valores[8]);
+                    variante.addAnalise(analise);
                     
                     varianteDao.adiciona(variante);
                     

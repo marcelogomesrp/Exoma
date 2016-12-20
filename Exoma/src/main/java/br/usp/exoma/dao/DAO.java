@@ -39,10 +39,9 @@ public class DAO<T> implements Serializable {
 
 	}
 
-	public void atualiza(T t) {
-
+	public T atualiza(T t) {
 		entityManager.merge(t);
-
+                return t;
 	}
 
 	public List<T> listaTodos() {

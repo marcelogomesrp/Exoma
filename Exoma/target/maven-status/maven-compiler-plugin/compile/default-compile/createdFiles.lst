@@ -1,5 +1,6 @@
 br\usp\exoma\service\AnaliseService.class
 br\usp\exoma\model\Paciente.class
+br\usp\exoma\dao\FiltroDao.class
 br\usp\exoma\dao\UsuarioDao.class
 br\usp\exoma\dao\AnaliseDao.class
 br\usp\exoma\dao\CromossomoDao.class
@@ -17,13 +18,16 @@ br\usp\exoma\service\UsuarioService.class
 br\usp\exoma\dao\tx\CreateLogger.class
 br\usp\exoma\view\LoginFilter.class
 br\usp\exoma\dao\DataRepositoryProducer.class
+br\usp\exoma\service\VarianteService.class
 br\usp\exoma\view\UserSession.class
 br\usp\exoma\dao\tx\Transacional.class
 br\usp\exoma\model\VariantePaciente.class
 br\usp\exoma\view\SelecionarVariantesMB.class
 br\usp\exoma\dao\tx\GerenciadorDeTransacao.class
 br\usp\exoma\dao\VariantePacienteDao.class
+br\usp\exoma\service\FiltroService.class
 br\usp\exoma\dao\PacienteDao.class
+br\usp\exoma\model\Filtro.class
 br\usp\exoma\model\Analise.class
 br\usp\exoma\model\Cromossomo.class
 br\usp\exoma\util\ServiceException.class

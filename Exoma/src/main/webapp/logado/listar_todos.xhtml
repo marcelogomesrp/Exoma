@@ -23,30 +23,10 @@
                 </p:column>
                 <p:column>
                     <p:commandButton value="Selecionar variantes"
-                                     action="#{selecionarVariantesMB.show}" update="">
+                                     action="#{selecionarVariantesMB.show}" ajax="false">
+                        <f:setPropertyActionListener value="#{analise}" target="#{selecionarVariantesMB.analise}" />
 
                     </p:commandButton>
-                </p:column>
-                <p:column>
-                    <p:commandButton value="Selecionar variantes"
-                                     action="#{selecionarVariantesMB.show}">
-                    </p:commandButton>
-                </p:column>
-                <p:column>
-                    <p:commandButton value="Selecionar variantes"
-                                     action="#{selecionarVariantesMB.show}"
-                                     ajax="false">
-                        <f:setPropertyActionListener 
-                            value="#{analise}" 
-                            target="#{selecionarVariantesMB.analise}" />
-                    </p:commandButton>
-                    <p:commandButton action="#{selecionarVariantesMB.show}" value="vai" ajax="false" />
-                </p:column>
-                <p:column>
-                    <p:commandButton value="Select" actionListener="#{selecionarVariantesMB.show}" update="@all" />
-                </p:column>
-                <p:column>
-                    <h:commandButton value="ok" action="/logado/selecionar_variantes" />
                 </p:column>
             </h:dataTable>
         </h:form>

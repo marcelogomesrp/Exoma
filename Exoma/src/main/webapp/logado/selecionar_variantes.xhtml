@@ -8,25 +8,56 @@
 
     <ui:define name="content">
         <h:outputText value="#{selecionarVariantesMB.analise.id}" />
-        <p:panelGrid columns="4" >
-            <p:panelGrid columns="1">
-                <h:outputText value="Impacto" />
-                <p:inputText />
-            </p:panelGrid>
-            <p:panelGrid columns="1">
-                <h:outputText value="Gene" />
-                <p:inputText />
-            </p:panelGrid>
-            <p:panelGrid columns="1">
-                <h:outputText value="Patologia" />
-                <p:inputText />
-            </p:panelGrid>
-            <p:panelGrid columns="1">
-                <p:selectManyCheckbox >
-                    <f:selectItem itemLabel="Gene mais mutado"    />
-                </p:selectManyCheckbox>
-            </p:panelGrid>                
-        </p:panelGrid>
+        <h:form id="fomulario">
+             <p:focus context=":fomulario:varianteDtable:panel"/>
+            <p:dataTable value="#{selecionarVariantesMB.listVariante}"
+                         var="variante" 
+                         widgetVar="varianteTable"
+                         paginator="false"
+                         id="varianteDtable"
+                         >
+
+                <p:column >                
+                    <f:facet name="header">
+                        <p:panelGrid columns="1">
+                            <h:outputText value="Id" />
+                            <p:inputText value="#{selecionarVariantesMB.filtro.fid}" 
+                                         style="width:150px" placeholder="id"                                          
+                                         >
+                                <p:ajax event="blur" listener="#{selecionarVariantesMB.filtrar}" update="varianteDtable"/>
+                            </p:inputText>
+                        </p:panelGrid>
+                    </f:facet>
+                    <h:outputText value="#{variante.id }" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <p:panelGrid columns="1">
+                            <h:outputText value="SNP" />
+                            <p:inputText value="#{selecionarVariantesMB.filtro.refSNP}" 
+                                         style="width:150px" placeholder="Enter refSNP" 
+                                         >
+                                <p:ajax event="blur" update="@form"  listener="#{selecionarVariantesMB.filtrar}" />
+                            </p:inputText>
+                        </p:panelGrid>
+                    </f:facet>
+                    <h:outputText value="#{variante.refSNP }" />
+                </p:column>
+
+                <p:column>
+                    <f:facet name="header">
+                        <p:panelGrid columns="1">
+                            <h:outputText value="Id" />
+                            <p:inputText  id="panel" 
+                                         style="width:150px" placeholder="filter"                                          
+                                         >
+                            </p:inputText>
+                        </p:panelGrid>
+                    </f:facet>
+                    <h:outputText value="#{variante.filter }" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
     </ui:define>
 
 </ui:composition>

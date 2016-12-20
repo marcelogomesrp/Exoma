@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -22,6 +23,9 @@ import javax.persistence.Temporal;
 @Entity
 @Table(name = "analise")
 public class Analise implements Serializable {
+
+    @ManyToMany(mappedBy = "analises")
+    private List<Variante> variantes;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -85,6 +89,11 @@ public class Analise implements Serializable {
 
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        return "Analise{" + "id=" + id + ", suspeitaDiagnostico=" + suspeitaDiagnostico + ", gestor=" + gestor + ", revisor=" + revisor + ", dataCadastro=" + dataCadastro + ", estado=" + estado + '}';
     }
 
     

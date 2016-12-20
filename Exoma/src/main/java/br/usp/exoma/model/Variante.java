@@ -1,6 +1,8 @@
 package br.usp.exoma.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -8,7 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -37,7 +41,10 @@ public class Variante implements Serializable {
     @Lob
     private String info;
     @Lob
-    private String format;
+    private String format;    
+    @ManyToMany
+    private List<Analise> analises = new ArrayList<Analise>();
+    
 
     public Long getId() {
         return id;
@@ -135,5 +142,24 @@ public class Variante implements Serializable {
     public void setFormat(String format) {
         this.format = format;
     }
+
+    public List<Analise> getAnalises() {
+        return analises;
+    }
+
+    public void setAnalises(List<Analise> analises) {
+        this.analises = analises;
+    }
+    
+    public void addAnalise(Analise analise){
+        this.analises.add(analise);
+    }
+
+    @Override
+    public String toString() {
+        return "Variante{" + "id=" + id + ", cromossomo=" + cromossomo + ", cromossomoPosicao=" + cromossomoPosicao + ", refSNP=" + refSNP + ", referencia=" + referencia + ", trocado=" + trocado + ", qualidade=" + qualidade + ", filter=" + filter + ", info=" + info + ", format=" + format + ", analises=" + analises + '}';
+    }
+    
+    
     
 }
