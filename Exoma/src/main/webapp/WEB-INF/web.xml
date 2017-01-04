@@ -15,6 +15,18 @@
   
   
   
+  <!-- Login filter 
+    <filter>
+        <filter-name>loginFilter</filter-name>
+        <filter-class>br.usp.exoma.view.LoginFilter</filter-class>
+    </filter>   
+    <filter-mapping>
+        <filter-name>loginFilter</filter-name>
+        <url-pattern>/logado/*</url-pattern>
+    </filter-mapping>
+  -->
+  
+  
     <!--  tentativa de download -->
   
     <!-- Muito importante -->

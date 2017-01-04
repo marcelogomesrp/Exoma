@@ -30,6 +30,26 @@
                     </f:facet>
                     <h:outputText value="#{variante.id }" />
                 </p:column>
+                
+                
+                <p:column >                
+                    <f:facet name="header">
+                            <p:commandLink value="Cromossomo" />
+                            <p:inputText  id="panel" style="width:0px" placeholder="Impacto" rendered="false"/>
+                    </f:facet>
+                    <h:outputText value="#{variante.cromossomo.nome }" />
+                </p:column>
+                
+                
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="Posicao" />
+                    </f:facet>
+                    <h:outputText value="#{variante.cromossomoPosicao }" />
+                </p:column>
+                
+                
+                
                 <p:column>
                     <f:facet name="header">
                         <p:panelGrid columns="1">
@@ -41,34 +61,71 @@
                             </p:inputText>
                         </p:panelGrid>
                     </f:facet>
-                    <h:outputText value="#{variante.refSNP }" />
+                    <h:outputLink value="https://www.ncbi.nlm.nih.gov/projects/SNP/snp_ref.cgi" target="_blank">
+                        <h:outputText value="#{variante.refSNP }" />
+                        <f:param name="rs" value="#{variante.refSNP}" />
+                    </h:outputLink>
+                </p:column>
+
+                
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="Referência" />
+                    </f:facet>
+                    <h:outputText value="#{variante.referencia }" />
+                </p:column>
+                
+                                
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="Alterado" />
+                    </f:facet>
+                    <h:outputText value="#{variante.trocado }" />
+                </p:column>
+                
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="Qualidade" />
+                    </f:facet>
+                    <h:outputText value="#{variante.qualidade }" />
                 </p:column>
 
                 <p:column>
                     <f:facet name="header">
-                        <p:panelGrid columns="1">
-                            <h:outputText value="Impacto" />
-                            <p:inputText  id="panel" 
-                                         style="width:150px" placeholder="Impacto"                                          
-                                         >
-                                 <p:commandButton value="Selecionar Impacto" type="button" onclick="PF('dlg1').show();" />
-                                    <p:dialog header="Selecione o impacto" widgetVar="dlg1" resizable="true" width="800">
-                                        
-                                        <p:selectManyCheckbox id="basic"  layout="grid" columns="1" >
-                                            <f:selectItem itemLabel="LowQual" itemValue="Xbox One" />                                           
-                                            <f:selectItem itemLabel="PASS" itemValue="PS4" />
-                                            <f:selectItem itemLabel="VQSRTrancheINDEL99.00to99.90" itemValue="Wii U" />
-                                            <f:selectItem itemLabel="VQSRTrancheSNP99.00to99.90" itemValue="Wii U" />
-                                            <f:selectItem itemLabel="VQSRTrancheSNP99.90to100.00" itemValue="Wii U" />
-                                        </p:selectManyCheckbox>
-                                            
-                                    </p:dialog>
-                            </p:inputText>
-                        </p:panelGrid>
+                        <p:commandLink value="Impacto" type="button" onclick="PF('dlg1').show();" />
+                        <p:dialog header="Selecione o impacto" widgetVar="dlg1" resizable="true" width="800">
+                            <p:selectManyCheckbox id="basic"  layout="grid" columns="1" value="#{selecionarVariantesMB.filtro.selectedImpacto}" >                                                                                                                          
+                                <f:selectItem itemLabel="LowQual" itemValue="lowqual" />                                           
+                                <f:selectItem itemLabel="PASS" itemValue="PASS" />
+                                <f:selectItem itemLabel="VQSRTrancheINDEL99.00to99.90"  itemValue="QSRTrancheINDEL99.00to99.90" />
+                                <f:selectItem itemLabel="VQSRTrancheINDEL99.90to100.00" itemValue="VQSRTrancheINDEL99.90to100.00" />                                            
+                                <f:selectItem itemLabel="VQSRTrancheSNP99.00to99.90"    itemValue="VQSRTrancheSNP99.00to99.90" />
+                                <f:selectItem itemLabel="VQSRTrancheSNP99.90to100.00"   itemValue="sVQSRTrancheSNP99.90to100.00" />
+                            </p:selectManyCheckbox>
+                            <p:commandButton value="filtrar" action="#{selecionarVariantesMB.filtrar}" onclick="PF('dlg1').hide();" update="@form"/>                                        
+                        </p:dialog>
+
                     </f:facet>
                     <h:outputText value="#{variante.filter }" />
                 </p:column>
+
+                
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="Info" />
+                    </f:facet>
+                    <h:outputText value="#{variante.info }" />
+                </p:column>
+                
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="Format" />
+                    </f:facet>
+                    <h:outputText value="#{variante.format }" />
+                </p:column>
+                
             </p:dataTable>
+             
         </h:form>
     </ui:define>
 

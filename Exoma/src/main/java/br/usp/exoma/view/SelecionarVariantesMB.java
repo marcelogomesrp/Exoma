@@ -101,6 +101,10 @@ public class SelecionarVariantesMB implements Serializable{
     public void setFiltro(Filtro filtro) {
         this.filtro = filtro;
     }
-     
+    
+    public String getLinkDbSNP(String rs){
+        return "https://www.ncbi.nlm.nih.gov/projects/SNP/snp_ref.cgi?rs=375086259";
+        //return "https://www.ncbi.nlm.nih.gov/projects/SNP/snp_ref.cgi?rs=" + rs;
+    }
      
 }

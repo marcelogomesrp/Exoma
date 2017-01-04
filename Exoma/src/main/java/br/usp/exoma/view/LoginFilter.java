@@ -1,6 +1,7 @@
 package br.usp.exoma.view;
 
 import java.io.IOException;
+import java.io.Serializable;
 import javax.inject.Inject;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -16,8 +17,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author marcelo
  */
-@WebFilter(urlPatterns="/logado/*", servletNames="{Faces Servlet}")
-public class LoginFilter implements Filter{
+//@WebFilter(urlPatterns="/logado/*", servletNames="{Faces Servlet}")
+//@WebFilter(urlPatterns="/exoma/logado/*")
+@WebFilter(filterName="loginFilter", urlPatterns={ "/logado/*" })
+public class LoginFilter implements Filter, Serializable{
     @Inject
     private UserSession userSession;
     
@@ -27,14 +30,21 @@ public class LoginFilter implements Filter{
 
     @Override
     public void doFilter(ServletRequest srequest, ServletResponse sresponse, FilterChain fc) throws IOException, ServletException {
+        System.out.println("Filtro em acao***********************************************************************************************************");
         HttpServletRequest httpServletRequest = (HttpServletRequest) srequest;
-        HttpServletResponse httpServletResponse = (HttpServletResponse) sresponse;        
+        HttpServletResponse httpServletResponse = (HttpServletResponse) sresponse;  
+        userSession = (UserSession)((HttpServletRequest)srequest).getSession().getAttribute("userSession");
+        if(userSession == null){
+            System.out.println("Injection falou****************");
+            httpServletResponse.sendRedirect("/exoma/login.xhtml");
+        }
+        
         if(userSession.isLoggedIn()){
             fc.doFilter(srequest, sresponse);
         }else{
             //httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/login.xhtml");
-            httpServletResponse.sendRedirect("login");
-        }       
+            httpServletResponse.sendRedirect("/exoma/login.xhtml");
+        } 
     }
 
     @Override

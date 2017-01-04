@@ -32,7 +32,8 @@ import javax.inject.Inject;
 @RequestScoped
 public class AnaliseService {
 
-    private static final File TARGET_FOLDER = new File("c:\\Temp");
+    //private static final File TARGET_FOLDER = new File("c:\\Temp");
+    private static final File TARGET_FOLDER = new File("/tmp");
 
     @Inject
     private AnaliseDao analiseDao;

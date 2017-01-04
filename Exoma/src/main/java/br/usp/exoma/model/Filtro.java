@@ -26,6 +26,7 @@ public class Filtro implements Serializable {
     private Long id;
     private Long fid;
     private String refSNP;
+    private String[] selectedImpacto;
 
     public Long getId() {
         return id;
@@ -56,6 +57,16 @@ public class Filtro implements Serializable {
         return "Filtro{" + "id=" + id + ", fid=" + fid + ", refSNP=" + refSNP + '}';
     }
 
+    public String[] getSelectedImpacto() {
+        return selectedImpacto;
+    }
+
+    public void setSelectedImpacto(String[] selectedImpacto) {
+        this.selectedImpacto = selectedImpacto;
+    }
+
+    
+    
     
     
     
