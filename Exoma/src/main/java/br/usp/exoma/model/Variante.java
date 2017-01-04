@@ -13,6 +13,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,6 +23,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "variante")
 public class Variante implements Serializable {
+
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,6 +47,8 @@ public class Variante implements Serializable {
     private String format;    
     @ManyToMany
     private List<Analise> analises = new ArrayList<Analise>();
+    @OneToOne(mappedBy = "variante")
+    private VarianteInfo varianteInfo;
     
 
     public Long getId() {
@@ -154,6 +159,16 @@ public class Variante implements Serializable {
     public void addAnalise(Analise analise){
         this.analises.add(analise);
     }
+
+    public VarianteInfo getVarianteInfo() {
+        return varianteInfo;
+    }
+
+    public void setVarianteInfo(VarianteInfo varianteInfo) {
+        this.varianteInfo = varianteInfo;
+    }
+    
+    
 
     @Override
     public String toString() {

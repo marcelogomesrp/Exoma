@@ -4,6 +4,7 @@ import br.usp.exoma.dao.AnaliseDao;
 import br.usp.exoma.dao.CromossomoDao;
 import br.usp.exoma.dao.PacienteDao;
 import br.usp.exoma.dao.VarianteDao;
+import br.usp.exoma.dao.VarianteInfoDao;
 import br.usp.exoma.dao.VariantePacienteDao;
 import br.usp.exoma.dao.tx.Transacional;
 import br.usp.exoma.model.Analise;
@@ -13,7 +14,9 @@ import br.usp.exoma.model.Nucleotideos;
 import br.usp.exoma.model.Paciente;
 import br.usp.exoma.model.Usuario;
 import br.usp.exoma.model.Variante;
+import br.usp.exoma.model.VarianteInfo;
 import br.usp.exoma.model.VariantePaciente;
+import br.usp.exoma.model.factory.VarianteInfoFactory;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -47,6 +50,10 @@ public class AnaliseService {
     private PacienteDao pacienteDao;
     @Inject
     private VariantePacienteDao variantePacienteDao;
+    @Inject
+    private VarianteInfoDao infoDao;
+    @Inject
+    private VarianteInfoFactory vinfoFactory;
     private Analise analise;
 
     /*
@@ -130,6 +137,11 @@ public class AnaliseService {
                     variante.addAnalise(analise);
                     
                     varianteDao.adiciona(variante);
+                    
+                    VarianteInfo info = vinfoFactory.makeVarianteInfo(valores[7], variante);
+                    infoDao.adiciona(info);
+                    
+                    
                     
                     for(int x = 9; x< valores.length; x++){
                         int posi = x - 9;

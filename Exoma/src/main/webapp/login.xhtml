@@ -16,7 +16,8 @@
                         <h:outputText value="Password" />
                         <p:inputText value="#{loginMB.password}" />
                     </h:panelGrid>
-                    <p:commandButton value="Entrar" action="#{loginMB.login}" ajax="false"/>
+                    <p:commandButton value="Entrar como gestor" action="#{loginMB.login}" ajax="false"/>
+                    <p:commandButton value="Entrar como revisor" action="revisor" ajax="false"/>
                 </h:form>
             </p:panel>
         </h:panelGroup>

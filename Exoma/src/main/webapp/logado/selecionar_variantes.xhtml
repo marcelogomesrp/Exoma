@@ -9,6 +9,22 @@
     <ui:define name="content">
         <h:outputText value="#{selecionarVariantesMB.analise.id}" />
         <h:form id="fomulario">
+            <p:panel>
+                <f:facet name="header" >
+                    <h:outputText value="filtros" />
+                    <p:panelGrid columns="1">
+                        <h:outputLabel value="Automático" for="automatico" />
+                        <p:selectOneMenu id="automatico">
+                            <f:selectItem itemLabel="1" itemValue="" />
+                            <f:selectItem itemLabel="2" itemValue="" />
+                            <f:selectItem itemLabel="3" itemValue="" />
+                            <f:selectItem itemLabel="4" itemValue="" />
+                            <f:selectItem itemLabel="5" itemValue="" />
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                </f:facet>
+                
+            </p:panel>
              <p:focus context=":fomulario:varianteDtable:panel"/>
             <p:dataTable value="#{selecionarVariantesMB.listVariante}"
                          var="variante" 
@@ -112,6 +128,131 @@
                 
                 <p:column >                
                     <f:facet name="header">
+                            <h:outputText value="AC" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.ac }" />
+                </p:column> 
+                
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="AF" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.af }" />
+                </p:column>   
+                
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="AN" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.an }" />
+                </p:column> 
+                
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="DP" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.dp }" />
+                </p:column> 
+                
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="ExcessHet" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.excessHet }" />
+                </p:column> 
+
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="Base Q Rank Sum" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.baseQRankSum }" />
+                </p:column> 
+
+                
+                
+                
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="Clipping Rank Sum" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.clippingRankSum }" />
+                </p:column> 
+                
+                
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="FS" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.fs }" />
+                </p:column>                 
+                
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="MLEAC" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.mleac }" />
+                </p:column>                 
+                
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="MLEAF" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.mleaf }" />
+                </p:column>                 
+                
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="MQ" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.mq }" />
+                </p:column> 
+
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="MQ Rank Sum" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.mQRankSum}" />
+                </p:column> 
+
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="SOE" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.sOR }" />
+                </p:column> 
+
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="VQSLOD _erro" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.vQSLOD }" />
+                </p:column>                 
+                
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="QD" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.qd }" />
+                </p:column> 
+                
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="Curlprint erro" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.culprit }" />
+                </p:column>  
+                
+                
+                <p:column >                
+                    <f:facet name="header">
+                            <h:outputText value="ANN" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.ann }" />
+                </p:column> 
+                
+                <!--
+                <p:column >                
+                    <f:facet name="header">
                             <h:outputText value="Info" />
                     </f:facet>
                     <h:outputText value="#{variante.info }" />
@@ -123,7 +264,7 @@
                     </f:facet>
                     <h:outputText value="#{variante.format }" />
                 </p:column>
-                
+                -->
             </p:dataTable>
              
         </h:form>
