@@ -27,7 +27,6 @@
 /home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/util/ServiceException.java
 /home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/view/LoginFilter.java
 /home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/dao/DAO.java
-/home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/model/Nucleotideos.java
 /home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/model/Variante.java
 /home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/dao/UsuarioDao.java
 /home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/dao/VariantePacienteDao.java

@@ -70,6 +70,14 @@ public class VarianteDao implements Serializable {
         cq.select(root);
         Predicate conjunction = cb.conjunction();
         Predicate orConjunction = cb.conjunction();
+        
+        if(filtro.getAnalise() != null){
+            Path<String> name = root.get("analises");
+            Predicate predicate = cb.equal(name, filtro.getAnalise());
+            conjunction.getExpressions().add(predicate);
+        }
+        
+        
         if(filtro.getFid() != null){
              Path<String> name = root.get("id");
              //cq.where(cb.and(cb.equal(name, filtro.getFid())));

@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -42,7 +43,27 @@ public class VarianteInfo implements Serializable {
     private double sOR;
     private double vQSLOD;
     private String culprit;
+    @Lob
     private String ann;
+    private String annotation;
+    private String impacto;
+    private String geneName;
+    private String geneId;
+    private String featuretype;
+    private String featureId;
+    private String transcriptBioType;
+    private String rank;
+    private String hgvsC;
+    private String hgvsP;
+    private String cdnaPosCdnaLen;
+    private String cdsPosCdsLen;
+    private String aaPosLen;    
+    private String distance;
+    private String info;
+            
+            
+    
+    
     
     @OneToOne
     private Variante variante = new Variante();
@@ -208,6 +229,127 @@ public class VarianteInfo implements Serializable {
 
     public void setAnn(String ann) {
         this.ann = ann;
+    }
+
+    public String getAnnotation() {
+        return annotation;
+    }
+
+    public void setAnnotation(String annotation) {
+        this.annotation = annotation;
+    }
+
+    public String getImpacto() {
+        return impacto;
+    }
+
+    public void setImpacto(String impacto) {
+        this.impacto = impacto;
+    }
+
+    public String getGeneName() {
+        return geneName;
+    }
+
+    public void setGeneName(String geneName) {
+        this.geneName = geneName;
+    }
+
+    public String getGeneId() {
+        return geneId;
+    }
+
+    public void setGeneId(String geneId) {
+        this.geneId = geneId;
+    }
+
+    public String getFeaturetype() {
+        return featuretype;
+    }
+
+    public void setFeaturetype(String featuretype) {
+        this.featuretype = featuretype;
+    }
+
+    public String getFeatureId() {
+        return featureId;
+    }
+
+    public void setFeatureId(String featureId) {
+        this.featureId = featureId;
+    }
+
+    public String getTranscriptBioType() {
+        return transcriptBioType;
+    }
+
+    public void setTranscriptBioType(String transcriptBioType) {
+        this.transcriptBioType = transcriptBioType;
+    }
+
+    public String getRank() {
+        return rank;
+    }
+
+    public void setRank(String rank) {
+        this.rank = rank;
+    }
+
+    public String getHgvsC() {
+        return hgvsC;
+    }
+
+    public void setHgvsC(String hgvsC) {
+        this.hgvsC = hgvsC;
+    }
+
+    public String getHgvsP() {
+        return hgvsP;
+    }
+
+    public void setHgvsP(String hgvsP) {
+        this.hgvsP = hgvsP;
+    }
+
+    public String getCdnaPosCdnaLen() {
+        return cdnaPosCdnaLen;
+    }
+
+    public void setCdnaPosCdnaLen(String cdnaPosCdnaLen) {
+        this.cdnaPosCdnaLen = cdnaPosCdnaLen;
+    }
+
+    public String getCdsPosCdsLen() {
+        return cdsPosCdsLen;
+    }
+
+    public void setCdsPosCdsLen(String cdsPosCdsLen) {
+        this.cdsPosCdsLen = cdsPosCdsLen;
+    }
+
+
+    public String getDistance() {
+        return distance;
+    }
+
+    public void setDistance(String distance) {
+        this.distance = distance;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public String getAaPosLen() {
+        return aaPosLen;
+    }
+
+    public void setAaPosLen(String aaPosLen) {
+        this.aaPosLen = aaPosLen;
     }
     
     

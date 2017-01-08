@@ -35,10 +35,10 @@ public class Variante implements Serializable {
     private String refSNP;
     //@Lob
     //private String texto;
-    @Enumerated(EnumType.STRING)
-    private Nucleotideos referencia;
-    @Enumerated(EnumType.STRING)
-    private Nucleotideos trocado;
+    //@Enumerated(EnumType.STRING)
+    private String referencia;
+    //@Enumerated(EnumType.STRING)
+    private String trocado;
     private Double qualidade;
     private String filter;
     @Lob
@@ -87,30 +87,8 @@ public class Variante implements Serializable {
         this.refSNP = refSNP;
     }
 
-    public Nucleotideos getReferencia() {
-        return referencia;
-    }
-
-    public void setReferencia(Nucleotideos referencia) {
-        this.referencia = referencia;
-    }
-    
-    public void setReferencia(String referencia) {
-        this.setReferencia(Nucleotideos.valueOf(referencia));
-    }
 
 
-    public Nucleotideos getTrocado() {
-        return trocado;
-    }
-
-    public void setTrocado(Nucleotideos trocado) {
-        this.trocado = trocado;
-    }
-    
-    public void setTrocado(String referencia) {
-        this.setTrocado(Nucleotideos.valueOf(referencia));
-    }
 
     public Double getQualidade() {
         return qualidade;
@@ -167,6 +145,23 @@ public class Variante implements Serializable {
     public void setVarianteInfo(VarianteInfo varianteInfo) {
         this.varianteInfo = varianteInfo;
     }
+
+    public String getReferencia() {
+        return referencia;
+    }
+
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
+    }
+
+    public String getTrocado() {
+        return trocado;
+    }
+
+    public void setTrocado(String trocado) {
+        this.trocado = trocado;
+    }
+    
     
     
 

@@ -20,7 +20,43 @@ public class VarianteInfoFactory implements Serializable {
         vInfo.setExcessHet(this.makeExcessHet(info));        
         vInfo.setMleac(this.makeMleac(info));
         vInfo.setMleaf(this.makeMleaf(info));
-        vInfo.setAnn(this.makeAnn(info));
+        String ann = this.makeAnn(info);
+        vInfo.setAnn(ann);
+        //vInfo.setAnnotation(this.makeAnnotation(ann));
+        
+        String[] vAnn = ann.split("\\|");
+        //vInfo.setAnnotation(String.valueOf(vAnn.length));
+        if(vAnn.length>1)
+            vInfo.setAnnotation(vAnn[1]);
+        if(vAnn.length>2)
+            vInfo.setImpacto(vAnn[2]);
+        if(vAnn.length>3)
+            vInfo.setGeneName(vAnn[3]);
+        if(vAnn.length>4)
+            vInfo.setGeneId(vAnn[4]);
+        if(vAnn.length>5)
+            vInfo.setFeatureId(vAnn[5]);
+        if(vAnn.length>6)
+            vInfo.setTranscriptBioType(vAnn[6]);
+        if(vAnn.length>7)
+            vInfo.setRank(vAnn[7]);
+        if(vAnn.length>8)
+            vInfo.setHgvsC(vAnn[8]);
+        if(vAnn.length>9)
+            vInfo.setHgvsP(vAnn[9]);
+        if(vAnn.length>10)
+            vInfo.setCdnaPosCdnaLen(vAnn[10]);
+        
+        if(vAnn.length>11)
+            vInfo.setCdsPosCdsLen(vAnn[11]);
+        
+        if(vAnn.length>12)
+            vInfo.setAaPosLen(vAnn[12]);
+        if(vAnn.length>13)
+            vInfo.setInfo(vAnn[13]);
+        
+       
+        
         
         vInfo.setVariante(variante);
         return vInfo;
@@ -169,7 +205,7 @@ public class VarianteInfoFactory implements Serializable {
     }    
     
     private String makeAnn(String info){
-        String pattern = ".*;ANN=([0-9a-zA-Z|_.><*]+)";        
+        String pattern = ".*;ANN=([0-9a-zA-Z|_./+-><*]+)";        
         String retorno = this.parser(pattern, info);
         return retorno;
     }    
@@ -192,6 +228,12 @@ public class VarianteInfoFactory implements Serializable {
             return matcher.group(1);
         }
         return null;
+    }
+
+    private String makeAnnotation(String ann) {
+        String pattern = ".*AC=([0-9\\-]+).*";
+        String retorno = this.parser(pattern, ann);
+        return retorno;
     }
 
     

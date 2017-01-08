@@ -10,7 +10,6 @@ import br.usp.exoma.dao.tx.Transacional;
 import br.usp.exoma.model.Analise;
 import br.usp.exoma.model.Cromossomo;
 import br.usp.exoma.model.Estado;
-import br.usp.exoma.model.Nucleotideos;
 import br.usp.exoma.model.Paciente;
 import br.usp.exoma.model.Usuario;
 import br.usp.exoma.model.Variante;
@@ -98,8 +97,10 @@ public class AnaliseService {
             buffRead = new BufferedReader(fileReader);
             String linha;
             int qtdPacientes = -1;
+            int contador = 0;
             while ((linha = buffRead.readLine()) != null) {
                 if (!linha.startsWith("#")) {                    
+                    System.out.println("Contador: " + contador++);
                     Variante variante = new Variante();
                     //variante.setTexto(linha);
                     String[] valores = linha.split("\\s+");
@@ -128,7 +129,8 @@ public class AnaliseService {
                     
                     variante.setCromossomoPosicao(valores[1]);
                     variante.setRefSNP(valores[2]);
-                    variante.setReferencia(Nucleotideos.valueOf(valores[3]));
+                    //variante.setReferencia(Nucleotideos.valueOf(valores[3]));
+                    variante.setReferencia(valores[3]);
                     variante.setTrocado(valores[4]);
                     variante.setQualidade(valores[5]);
                     variante.setFilter(valores[6]);
@@ -139,6 +141,7 @@ public class AnaliseService {
                     varianteDao.adiciona(variante);
                     
                     VarianteInfo info = vinfoFactory.makeVarianteInfo(valores[7], variante);
+                    //VarianteInfo info = new VarianteInfo();
                     infoDao.adiciona(info);
                     
                     

@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -27,6 +28,8 @@ public class Filtro implements Serializable {
     private Long fid;
     private String refSNP;
     private String[] selectedImpacto;
+    @OneToOne
+    private Analise analise;
 
     public Long getId() {
         return id;
@@ -63,6 +66,14 @@ public class Filtro implements Serializable {
 
     public void setSelectedImpacto(String[] selectedImpacto) {
         this.selectedImpacto = selectedImpacto;
+    }
+
+    public Analise getAnalise() {
+        return analise;
+    }
+
+    public void setAnalise(Analise analise) {
+        this.analise = analise;
     }
 
     

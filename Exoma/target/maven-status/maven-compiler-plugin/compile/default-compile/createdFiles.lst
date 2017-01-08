@@ -20,6 +20,5 @@ br/usp/exoma/service/VarianteService.class
 br/usp/exoma/dao/AnaliseDao.class
 br/usp/exoma/model/Cromossomo.class
 br/usp/exoma/view/AnaliseAddMB.class
-br/usp/exoma/model/Nucleotideos.class
 br/usp/exoma/dao/VarianteDao.class
 br/usp/exoma/view/LoginMB.class

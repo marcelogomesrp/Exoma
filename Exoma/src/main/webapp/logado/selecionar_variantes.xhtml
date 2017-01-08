@@ -23,50 +23,68 @@
                         </p:selectOneMenu>
                     </p:panelGrid>
                 </f:facet>
-                
+
             </p:panel>
-             <p:focus context=":fomulario:varianteDtable:panel"/>
+            <p:focus context=":fomulario:varianteDtable:panel"/>
             <p:dataTable value="#{selecionarVariantesMB.listVariante}"
                          var="variante" 
                          widgetVar="varianteTable"
-                         paginator="false"
+                         paginator="true"
                          id="varianteDtable"
+                         scrollable="true" scrollWidth="100%" scrollHeight="100px"
+                         rows="10"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15"
+                         sortMode="multiple"                         
                          >
 
-                <p:column >                
+                <p:column  sortBy="#{variante.id}" style="width: 50px">                
                     <f:facet name="header">
-                        <p:panelGrid columns="1">
-                            <h:outputText value="Id" />
+
+                        <p:commandButton value="Id" type="button" onclick="PF('dlId').show();" />
+                        <p:dialog header="Selecione o Id" widgetVar="dlId" resizable="true" width="800">
                             <p:inputText value="#{selecionarVariantesMB.filtro.fid}" 
-                                         style="width:150px" placeholder="id"                                          
-                                         >
-                                <p:ajax event="blur" listener="#{selecionarVariantesMB.filtrar}" update="varianteDtable"/>
-                            </p:inputText>
-                        </p:panelGrid>
+                                         style="width:150px" placeholder="id" />
+                            <p:commandButton 
+                                value="filtrar" 
+                                action="#{selecionarVariantesMB.filtrar}" 
+                                onclick="PF('dlId').hide();" 
+                                update="@form varianteDtable"/>                                        
+                        </p:dialog>
+
                     </f:facet>
                     <h:outputText value="#{variante.id }" />
                 </p:column>
-                
-                
-                <p:column >                
+
+
+                <p:column sortBy="#{variante.cromossomo.nome}" style="width: 140px" >                
                     <f:facet name="header">
-                            <p:commandLink value="Cromossomo" />
-                            <p:inputText  id="panel" style="width:0px" placeholder="Impacto" rendered="false"/>
+                        <p:inputText  id="panel" style="width:0px" placeholder="Impacto" rendered="false"/>
+
+                        <!-- paste -->
+                        <p:commandButton value="Cromossomo" type="button" onclick="PF('dlcromossomo').show();" />
+                        <p:dialog header="Selecione o cromossomo" widgetVar="dlcromossomo" resizable="true" width="800">
+
+                            <p:commandButton value="filtrar" action="#{selecionarVariantesMB.filtrar}" onclick="PF('dlcromossomo').hide();" update="@form"/>                                        
+                        </p:dialog>
+                        <!-- paste fim -->
+
+
                     </f:facet>
                     <h:outputText value="#{variante.cromossomo.nome }" />
                 </p:column>
-                
-                
-                <p:column >                
+
+
+                <p:column sortBy="#{variante.cromossomoPosicao}" style="width: 100px">                
                     <f:facet name="header">
-                            <h:outputText value="Posicao" />
+                        <h:outputText value="Posicao" />
                     </f:facet>
                     <h:outputText value="#{variante.cromossomoPosicao }" />
                 </p:column>
-                
-                
-                
-                <p:column>
+
+
+
+                <p:column sortBy="#{variante.refSNP}" style="width: 200px">
                     <f:facet name="header">
                         <p:panelGrid columns="1">
                             <h:outputText value="SNP" />
@@ -83,30 +101,30 @@
                     </h:outputLink>
                 </p:column>
 
-                
-                <p:column >                
+
+                <p:column sortBy="#{variante.referencia}" style="width: 100px">                
                     <f:facet name="header">
-                            <h:outputText value="Referência" />
+                        <h:outputText value="Referência" />
                     </f:facet>
                     <h:outputText value="#{variante.referencia }" />
                 </p:column>
-                
-                                
-                <p:column >                
+
+
+                <p:column sortBy="#{variante.trocado}" style="width: 100px">                
                     <f:facet name="header">
-                            <h:outputText value="Alterado" />
+                        <h:outputText value="Alterado" />
                     </f:facet>
                     <h:outputText value="#{variante.trocado }" />
                 </p:column>
-                
-                <p:column >                
+
+                <p:column style="width: 100px">                
                     <f:facet name="header">
-                            <h:outputText value="Qualidade" />
+                        <h:outputText value="Qualidade" />
                     </f:facet>
                     <h:outputText value="#{variante.qualidade }" />
                 </p:column>
 
-                <p:column>
+                <p:column  sortBy="#{variante.filter}" style="width: 250px">
                     <f:facet name="header">
                         <p:commandLink value="Impacto" type="button" onclick="PF('dlg1').show();" />
                         <p:dialog header="Selecione o impacto" widgetVar="dlg1" resizable="true" width="800">
@@ -125,131 +143,236 @@
                     <h:outputText value="#{variante.filter }" />
                 </p:column>
 
-                
-                <p:column >                
+
+                <p:column style="width: 50px">                
                     <f:facet name="header">
-                            <h:outputText value="AC" />
+                        <h:outputText value="AC" />
                     </f:facet>
                     <h:outputText value="#{variante.varianteInfo.ac }" />
                 </p:column> 
-                
-                <p:column >                
+
+                <p:column style="width: 50px">                
                     <f:facet name="header">
-                            <h:outputText value="AF" />
+                        <h:outputText value="AF" />
                     </f:facet>
                     <h:outputText value="#{variante.varianteInfo.af }" />
                 </p:column>   
-                
-                <p:column >                
+
+                <p:column style="width: 50px">                
                     <f:facet name="header">
-                            <h:outputText value="AN" />
+                        <h:outputText value="AN" />
                     </f:facet>
                     <h:outputText value="#{variante.varianteInfo.an }" />
                 </p:column> 
-                
-                <p:column >                
+
+                <p:column style="width: 50px">                
                     <f:facet name="header">
-                            <h:outputText value="DP" />
+                        <h:outputText value="DP" />
                     </f:facet>
                     <h:outputText value="#{variante.varianteInfo.dp }" />
                 </p:column> 
-                
-                <p:column >                
+
+                <p:column style="width: 75px" >                
                     <f:facet name="header">
-                            <h:outputText value="ExcessHet" />
+                        <h:outputText value="ExcessHet" />
                     </f:facet>
                     <h:outputText value="#{variante.varianteInfo.excessHet }" />
                 </p:column> 
 
-                <p:column >                
+                <p:column style="width: 100px">                
                     <f:facet name="header">
-                            <h:outputText value="Base Q Rank Sum" />
+                        <h:outputText value="Base Q Rank Sum" />
                     </f:facet>
                     <h:outputText value="#{variante.varianteInfo.baseQRankSum }" />
                 </p:column> 
 
-                
-                
-                
-                <p:column >                
+
+
+
+                <p:column style="width: 100px">                
                     <f:facet name="header">
-                            <h:outputText value="Clipping Rank Sum" />
+                        <h:outputText value="Clipping Rank Sum" />
                     </f:facet>
                     <h:outputText value="#{variante.varianteInfo.clippingRankSum }" />
                 </p:column> 
-                
-                
-                <p:column >                
+
+
+                <p:column style="width: 50px">                
                     <f:facet name="header">
-                            <h:outputText value="FS" />
+                        <h:outputText value="FS" />
                     </f:facet>
                     <h:outputText value="#{variante.varianteInfo.fs }" />
                 </p:column>                 
-                
-                <p:column >                
+
+                <p:column style="width: 50px">                
                     <f:facet name="header">
-                            <h:outputText value="MLEAC" />
+                        <h:outputText value="MLEAC" />
                     </f:facet>
                     <h:outputText value="#{variante.varianteInfo.mleac }" />
                 </p:column>                 
-                
-                <p:column >                
+
+                <p:column style="width: 50px">                
                     <f:facet name="header">
-                            <h:outputText value="MLEAF" />
+                        <h:outputText value="MLEAF" />
                     </f:facet>
                     <h:outputText value="#{variante.varianteInfo.mleaf }" />
                 </p:column>                 
-                
-                <p:column >                
+
+                <p:column style="width: 50px">                
                     <f:facet name="header">
-                            <h:outputText value="MQ" />
+                        <h:outputText value="MQ" />
                     </f:facet>
                     <h:outputText value="#{variante.varianteInfo.mq }" />
                 </p:column> 
 
-                <p:column >                
+                <p:column style="width: 100px">                
                     <f:facet name="header">
-                            <h:outputText value="MQ Rank Sum" />
+                        <h:outputText value="MQ Rank Sum" />
                     </f:facet>
                     <h:outputText value="#{variante.varianteInfo.mQRankSum}" />
                 </p:column> 
 
-                <p:column >                
+                <p:column style="width: 50px">                
                     <f:facet name="header">
-                            <h:outputText value="SOE" />
+                        <h:outputText value="SOE" />
                     </f:facet>
                     <h:outputText value="#{variante.varianteInfo.sOR }" />
                 </p:column> 
 
-                <p:column >                
+                <p:column style="width: 100px">                
                     <f:facet name="header">
-                            <h:outputText value="VQSLOD _erro" />
+                        <h:outputText value="VQSLOD _erro" />
                     </f:facet>
                     <h:outputText value="#{variante.varianteInfo.vQSLOD }" />
                 </p:column>                 
-                
-                <p:column >                
+
+                <p:column style="width: 50px">                
                     <f:facet name="header">
-                            <h:outputText value="QD" />
+                        <h:outputText value="QD" />
                     </f:facet>
                     <h:outputText value="#{variante.varianteInfo.qd }" />
                 </p:column> 
-                
-                <p:column >                
+
+                <p:column style="width: 100px" >                
                     <f:facet name="header">
-                            <h:outputText value="Curlprint erro" />
+                        <h:outputText value="Curlprint erro" />
                     </f:facet>
                     <h:outputText value="#{variante.varianteInfo.culprit }" />
                 </p:column>  
-                
-                
-                <p:column >                
+
+                <p:column style="width: 200px" >                
                     <f:facet name="header">
-                            <h:outputText value="ANN" />
+                        <h:outputText value="Annotation" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.annotation }" />
+                </p:column>  
+
+                <p:column style="width: 200px" >                
+                    <f:facet name="header">
+                        <h:outputText value="Impacto" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.impacto }" />
+                </p:column> 
+
+                <p:column style="width: 100px" >                
+                    <f:facet name="header">
+                        <h:outputText value="Gene Name" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.geneName }" />
+                </p:column> 
+
+
+                <p:column style="width: 200px" >                
+                    <f:facet name="header">
+                        <h:outputText value="Feature type" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.featuretype }" />
+                </p:column>                 
+
+                <p:column style="width: 200px" >                
+                    <f:facet name="header">
+                        <h:outputText value="Feature id" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.featureId }" />
+                </p:column>                                 
+
+                <p:column style="width: 200px" >                
+                    <f:facet name="header">
+                        <h:outputText value="Transcript BioType" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.transcriptBioType }" />
+                </p:column>                                  
+
+                <p:column style="width: 200px" >                
+                    <f:facet name="header">
+                        <h:outputText value="Rank" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.rank }" />
+                </p:column>                                                
+
+                <p:column style="width: 100px" >                
+                    <f:facet name="header">
+                        <h:outputText value="HGVS.C" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.hgvsC }" />
+                </p:column>                                
+
+
+                <p:column style="width: 100px" >                
+                    <f:facet name="header">
+                        <h:outputText value="HGVS.P" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.hgvsP }" />
+                </p:column>                                
+
+                <p:column style="width: 200px" >                
+                    <f:facet name="header">
+                        <h:outputText value="cdna Pos/Len" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.cdnaPosCdnaLen }" />
+                </p:column>                                
+
+                <p:column style="width: 200px" >                
+                    <f:facet name="header">
+                        <h:outputText value="HGVS.C" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.cdsPosCdsLen }" />
+                </p:column>                                
+
+
+                <p:column style="width: 100px" >                
+                    <f:facet name="header">
+                        <h:outputText value="AA Pos/Len" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.aaPosLen }" />
+                </p:column>                                                
+
+
+                <p:column style="width: 100px" >                
+                    <f:facet name="header">
+                        <h:outputText value="Distance" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.distance }" />
+                </p:column>                                                
+
+                <p:column style="width: 100px" >                
+                    <f:facet name="header">
+                        <h:outputText value="Info" />
+                    </f:facet>
+                    <h:outputText value="#{variante.varianteInfo.info }" />
+                </p:column>                                                
+
+                <p:column style="width: 900px">                
+                    <f:facet name="header">
+                        <h:outputText value="ANN" />
                     </f:facet>
                     <h:outputText value="#{variante.varianteInfo.ann }" />
                 </p:column> 
-                
+
+
+
+
+
                 <!--
                 <p:column >                
                     <f:facet name="header">
@@ -266,7 +389,7 @@
                 </p:column>
                 -->
             </p:dataTable>
-             
+
         </h:form>
     </ui:define>
 

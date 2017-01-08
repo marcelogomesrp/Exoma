@@ -90,7 +90,8 @@ public class SelecionarVariantesMB implements Serializable{
      }
      
      public void filtrar(){
-         //System.out.println("Filtrando...");
+         System.out.println("Filtrando...");
+         filtro.setAnalise(analise);
          listVariante = varianteService.buscaPorFiltro(filtro);
      }
 
