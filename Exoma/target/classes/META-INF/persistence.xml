@@ -27,8 +27,10 @@
 			<property name="hibernate.connection.password" value="senha" />
 			<property name="hibernate.connection.url" value="jdbc:mysql://localhost/exoma?useTimezone=true&amp;serverTimezone=UTC" />
                         
+                        <!--
                         <property name="javax.persistence.sql-load-script-source" value="META-INF/carregar-dados.sql"/>
                         <property name="hibernate.show_sql" value="true" />
+                        -->
 
 <!-- HSQL Db Syntax
   		 	

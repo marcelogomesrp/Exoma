@@ -60,16 +60,13 @@
                 <p:column sortBy="#{variante.cromossomo.nome}" style="width: 140px" >                
                     <f:facet name="header">
                         <p:inputText  id="panel" style="width:0px" placeholder="Impacto" rendered="false"/>
-
-                        <!-- paste -->
                         <p:commandButton value="Cromossomo" type="button" onclick="PF('dlcromossomo').show();" />
                         <p:dialog header="Selecione o cromossomo" widgetVar="dlcromossomo" resizable="true" width="800">
-
-                            <p:commandButton value="filtrar" action="#{selecionarVariantesMB.filtrar}" onclick="PF('dlcromossomo').hide();" update="@form"/>                                        
+                            <p:commandButton value="filtrar" 
+                                             action="#{selecionarVariantesMB.filtrar}" 
+                                             onclick="PF('dlcromossomo').hide();" 
+                                             update="@form"/>                                        
                         </p:dialog>
-                        <!-- paste fim -->
-
-
                     </f:facet>
                     <h:outputText value="#{variante.cromossomo.nome }" />
                 </p:column>
@@ -77,23 +74,40 @@
 
                 <p:column sortBy="#{variante.cromossomoPosicao}" style="width: 100px">                
                     <f:facet name="header">
-                        <h:outputText value="Posicao" />
+                        <p:commandButton value="Posicao" onclick="PF('dlPosicao').show();" />
+                        <p:dialog header="Informe a posição" widgetVar="dlPosicao" resizable="true" width="800">
+                            <p:inputText value="#{selecionarVariantesMB.filtro.posicaoInicial}" 
+                                         style="width:150px" placeholder="posicao" />
+                           <!--
+                            <p:inputText value="#{selecionarVariantesMB.filtro.posicaoFinal}" 
+                                         style="width:150px" placeholder="fim" />
+                           -->
+                            <p:commandButton 
+                                value="filtrar" 
+                                action="#{selecionarVariantesMB.filtrar}" 
+                                onclick="PF('dlId').hide();" 
+                                update="@form varianteDtable"/>                                        
+                        </p:dialog>
                     </f:facet>
                     <h:outputText value="#{variante.cromossomoPosicao }" />
                 </p:column>
 
 
 
-                <p:column sortBy="#{variante.refSNP}" style="width: 200px">
+                <p:column sortBy="#{variante.refSNP}" style="width: 110px">
                     <f:facet name="header">
-                        <p:panelGrid columns="1">
-                            <h:outputText value="SNP" />
+                        <p:commandButton value="Posicao" onclick="PF('dlSnp').show();" />
+                        <p:dialog header="Informe a SNP" widgetVar="dlSnp" resizable="true" width="800">
                             <p:inputText value="#{selecionarVariantesMB.filtro.refSNP}" 
-                                         style="width:150px" placeholder="Enter refSNP" 
-                                         >
-                                <p:ajax event="blur" update="@form"  listener="#{selecionarVariantesMB.filtrar}" />
-                            </p:inputText>
-                        </p:panelGrid>
+                                         style="width:150px" placeholder="" />
+                            <p:commandButton 
+                                value="filtrar" 
+                                action="#{selecionarVariantesMB.filtrar}" 
+                                onclick="PF('dlSnp').hide();" 
+                                update="@form varianteDtable"/>                                        
+                        </p:dialog>
+                        
+                        
                     </f:facet>
                     <h:outputLink value="https://www.ncbi.nlm.nih.gov/projects/SNP/snp_ref.cgi" target="_blank">
                         <h:outputText value="#{variante.refSNP }" />

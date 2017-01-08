@@ -9,7 +9,6 @@ import br.usp.exoma.model.Analise;
 import br.usp.exoma.model.Filtro;
 import br.usp.exoma.model.Variante;
 import java.io.Serializable;
-import java.lang.reflect.Field;
 import java.util.LinkedList;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -19,14 +18,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import javax.persistence.criteria.Selection;
-import org.hibernate.engine.LoadQueryInfluencers;
-import org.hibernate.loader.OuterJoinLoader;
-import org.hibernate.loader.criteria.CriteriaLoader;
-import org.hibernate.persister.entity.OuterJoinLoadable;
+import static org.hibernate.criterion.Restrictions.ge;
 
 /**
  *
@@ -80,11 +76,8 @@ public class VarianteDao implements Serializable {
         
         if(filtro.getFid() != null){
              Path<String> name = root.get("id");
-             //cq.where(cb.and(cb.equal(name, filtro.getFid())));
              Predicate p1 = cb.equal(name, filtro.getFid());             
              conjunction.getExpressions().add(p1);
-        }else{
-            System.out.println("não buscado pelo id");
         }
         
         if(filtro.getRefSNP() != null){                
@@ -100,6 +93,29 @@ public class VarianteDao implements Serializable {
                 System.out.println("Nao buscado pelo snp");
             }
         }
+        
+        if(filtro.getPosicaoInicial()!= null){
+            System.out.println("--------------------------------------------------->");
+            System.out.println("--------------------------------------------------->");
+            System.out.println("--------------------------------------------------->");
+            System.out.println("--------------------------------------------------->");
+            System.out.println("--------------------------------------------------->");
+            System.out.println("--------------------------------------------------->");
+            System.out.println("--------------------------------------------------->");
+            System.out.println("--------------------------------------------------->");
+            
+            Path<Integer> name = root.get("cromossomoPosicao");
+            Predicate predicate = cb.equal(name, filtro.getPosicaoInicial());            
+            conjunction.getExpressions().add(predicate);
+        }
+        
+        /*
+        if(filtro.getPosicaoFinal()!= null){
+            Path<Integer> name = root.get("cromossomoPosicao");
+            Predicate predicate = cb.le(name, filtro.getPosicaoFinal());            
+            conjunction.getExpressions().add(predicate);
+        }
+        */
         
         if(filtro.getSelectedImpacto().length > 0){
             //Predicate q = null;
@@ -144,7 +160,6 @@ public class VarianteDao implements Serializable {
         //    System.out.println("V: " + v.toString());
         //}
         
-        System.out.println("query:"+query.toString());
         
         for(String f : filtro.getSelectedImpacto()){
             System.out.println("\n\t******:" + f);

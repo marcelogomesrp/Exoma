@@ -30,6 +30,9 @@ public class Filtro implements Serializable {
     private String[] selectedImpacto;
     @OneToOne
     private Analise analise;
+    private Integer posicaoInicial;
+    private Integer posicaoFinal;
+    
 
     public Long getId() {
         return id;
@@ -74,6 +77,22 @@ public class Filtro implements Serializable {
 
     public void setAnalise(Analise analise) {
         this.analise = analise;
+    }
+
+    public Integer getPosicaoInicial() {
+        return posicaoInicial;
+    }
+
+    public void setPosicaoInicial(Integer posicaoInicial) {
+        this.posicaoInicial = posicaoInicial;
+    }
+
+    public Integer getPosicaoFinal() {
+        return posicaoFinal;
+    }
+
+    public void setPosicaoFinal(Integer posicaoFinal) {
+        this.posicaoFinal = posicaoFinal;
     }
 
     
