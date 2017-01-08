@@ -12,17 +12,25 @@
             <p:panel>
                 <f:facet name="header" >
                     <h:outputText value="filtros" />
-                    <p:panelGrid columns="1">
+                </f:facet>
+                    <p:panelGrid columns="3">
+                        <p:panelGrid columns="1">
                         <h:outputLabel value="Automático" for="automatico" />
                         <p:selectOneMenu id="automatico">
+                            <f:selectItem itemLabel="" itemValue="" />
                             <f:selectItem itemLabel="1" itemValue="" />
                             <f:selectItem itemLabel="2" itemValue="" />
                             <f:selectItem itemLabel="3" itemValue="" />
                             <f:selectItem itemLabel="4" itemValue="" />
                             <f:selectItem itemLabel="5" itemValue="" />
                         </p:selectOneMenu>
+                        </p:panelGrid>
+                        <p:panelGrid columns="1">
+                            <h:outputLabel value="CID-10" for="cid10" />
+                            <p:inputText id="cid10" value="#{selecionarVariantesMB.filtro.cid}"/>
+                        </p:panelGrid>
+                        <p:commandButton value="Aplicar filtros" />
                     </p:panelGrid>
-                </f:facet>
 
             </p:panel>
             <p:focus context=":fomulario:varianteDtable:panel"/>
@@ -292,7 +300,12 @@
                     <f:facet name="header">
                         <h:outputText value="Gene Name" />
                     </f:facet>
-                    <h:outputText value="#{variante.varianteInfo.geneName }" />
+                    <h:outputLink value="https://www.ncbi.nlm.nih.gov/gene/?term=" target="_blank">
+                        <h:outputText value="#{variante.varianteInfo.geneName }" />
+                        <f:param name="term" value="#{variante.varianteInfo.geneName}" />
+                    </h:outputLink>
+                    
+                    
                 </p:column> 
 
 

@@ -32,7 +32,7 @@ public class Filtro implements Serializable {
     private Analise analise;
     private Integer posicaoInicial;
     private Integer posicaoFinal;
-    
+    private String cid;
 
     public Long getId() {
         return id;
@@ -93,6 +93,14 @@ public class Filtro implements Serializable {
 
     public void setPosicaoFinal(Integer posicaoFinal) {
         this.posicaoFinal = posicaoFinal;
+    }
+
+    public String getCid() {
+        return cid;
+    }
+
+    public void setCid(String cid) {
+        this.cid = cid;
     }
 
     
