@@ -7,6 +7,7 @@
 /home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/dao/AnaliseDao.java
 /home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/dao/tx/GerenciadorDeTransacao.java
 /home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/model/Usuario.java
+/home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/dao/GeneDao.java
 /home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/model/factory/VarianteInfoFactory.java
 /home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/view/SelecionarVariantesMB.java
 /home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/service/CromossomoService.java
@@ -21,6 +22,7 @@
 /home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/view/UserSession.java
 /home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/model/Estado.java
 /home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/view/AnaliseAddMB.java
+/home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/model/Gene.java
 /home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/view/LoginBean.java
 /home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/model/VariantePaciente.java
 /home/marcelo/NetBeansProjects/Exoma/Exoma/src/main/java/br/usp/exoma/view/UsuarioAddMB.java

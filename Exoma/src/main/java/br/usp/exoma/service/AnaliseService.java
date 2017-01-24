@@ -2,6 +2,7 @@ package br.usp.exoma.service;
 
 import br.usp.exoma.dao.AnaliseDao;
 import br.usp.exoma.dao.CromossomoDao;
+import br.usp.exoma.dao.GeneDao;
 import br.usp.exoma.dao.PacienteDao;
 import br.usp.exoma.dao.VarianteDao;
 import br.usp.exoma.dao.VarianteInfoDao;
@@ -10,6 +11,7 @@ import br.usp.exoma.dao.tx.Transacional;
 import br.usp.exoma.model.Analise;
 import br.usp.exoma.model.Cromossomo;
 import br.usp.exoma.model.Estado;
+import br.usp.exoma.model.Gene;
 import br.usp.exoma.model.Paciente;
 import br.usp.exoma.model.Usuario;
 import br.usp.exoma.model.Variante;
@@ -53,7 +55,10 @@ public class AnaliseService {
     private VarianteInfoDao infoDao;
     @Inject
     private VarianteInfoFactory vinfoFactory;
+    @Inject
+    private GeneDao geneDao;
     private Analise analise;
+    
 
     /*
     @Transacional
@@ -141,7 +146,21 @@ public class AnaliseService {
                     varianteDao.adiciona(variante);
                     
                     VarianteInfo info = vinfoFactory.makeVarianteInfo(valores[7], variante);
+                    //Gene gene = new Gene();
+                    //gene.setSymbol(info.getGeneName());
+                    //gene = geneDao.adiciona(gene);
+                    if(info.getGene().getSymbol().isEmpty()){
+                        info.getGene().setSymbol("NOT");
+                    }
+                    Gene gene = geneDao.buscarPorSymbol(info.getGene());
+                    if(gene == null){
+                        info.setGene(geneDao.adiciona(info.getGene()));
+                    }else{
+                        info.setGene(gene);
+                    }
+                    //info.setGene(geneDao.adiciona(info.getGene()));
                     //VarianteInfo info = new VarianteInfo();
+                    //info.setGene(geneDao.adiciona(info.getGene()));
                     infoDao.adiciona(info);
                     
                     

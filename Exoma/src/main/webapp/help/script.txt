@@ -1,0 +1,11 @@
+cat /data2/marcelo/head.vcf | perl /data1/biotools/snpEff/scripts/vcfEffOnePerLine.pl > umPorLinha.vcf
+
+java -jar SnpSift.jar extractFields umPorLinha.vcf POS | sort -u
+
+java -jar SnpSift.jar extractFields umPorLinha.vcf ANN.GENE[*] | sort -u
+
+
+
+java -jar /data1/biotools/snpEff/SnpSift.jar extractFields umPorLinhaCompleto.vcf CHROM POS  ANN[*].GENEID ANN[*].GENE | grep 55085
+
+http://snpeff.sourceforge.net/SnpSift.version_4_0.html#Extract

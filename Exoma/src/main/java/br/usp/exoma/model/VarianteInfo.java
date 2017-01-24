@@ -60,11 +60,9 @@ public class VarianteInfo implements Serializable {
     private String aaPosLen;    
     private String distance;
     private String info;
-            
-            
     
-    
-    
+    @OneToOne
+    private Gene gene = new Gene();
     @OneToOne
     private Variante variante = new Variante();
 
@@ -350,6 +348,15 @@ public class VarianteInfo implements Serializable {
 
     public void setAaPosLen(String aaPosLen) {
         this.aaPosLen = aaPosLen;
+    }
+
+    
+    public Gene getGene() {
+        return gene;
+    }
+
+    public void setGene(Gene gene) {
+        this.gene = gene;
     }
     
     

@@ -1,5 +1,6 @@
 package br.usp.exoma.model.factory;
 
+import br.usp.exoma.model.Gene;
 import br.usp.exoma.model.Variante;
 import br.usp.exoma.model.VarianteInfo;
 import java.io.Serializable;
@@ -11,8 +12,10 @@ import javax.enterprise.context.RequestScoped;
 public class VarianteInfoFactory implements Serializable {
     private static final long serialVersionUID = 1L;
     
+    
     public VarianteInfo makeVarianteInfo(String info, Variante variante){
         VarianteInfo vInfo = new VarianteInfo();
+        vInfo.setGene(new Gene());
         vInfo.setAc(this.makeAc(info));
         vInfo.setAf(this.makeAf(info));
         vInfo.setDp(this.makeDp(info));
@@ -31,9 +34,12 @@ public class VarianteInfoFactory implements Serializable {
         if(vAnn.length>2)
             vInfo.setImpacto(vAnn[2]);
         if(vAnn.length>3)
+            // criar o gene aqui?
             vInfo.setGeneName(vAnn[3]);
+            vInfo.getGene().setSymbol(vAnn[3]);
         if(vAnn.length>4)
             vInfo.setGeneId(vAnn[4]);
+            vInfo.getGene().setEnsemblId(vAnn[4]);
         if(vAnn.length>5)
             vInfo.setFeatureId(vAnn[5]);
         if(vAnn.length>6)
